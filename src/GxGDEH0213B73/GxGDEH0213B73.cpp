@@ -397,10 +397,17 @@ void GxGDEH0213B73::updateToWindow(uint16_t xs, uint16_t ys, uint16_t xd, uint16
   delay(GxGDEH0213B73_PU_DELAY);
 }
 
+void GxGDEH0213B73::_deepSleep(){
+  _writeCommand(0x10);
+  _writeData(0b00000011); // deep sleep 2
+  vTaskDelay(100); // Debería ir a dormir
+}
+
 void GxGDEH0213B73::powerDown()
 {
   _using_partial_mode = false;
-  _PowerOff();
+  //_PowerOff();
+  _deepSleep();
 }
 
 void GxGDEH0213B73::_writeCommand(uint8_t command)

@@ -85,6 +85,7 @@ class GxGDEH0213B73 : public GxEPD
     void _SetRamArea(uint8_t Xstart, uint8_t Xend, uint8_t Ystart, uint8_t Ystart1, uint8_t Yend, uint8_t Yend1);
     void _PowerOn(void);
     void _PowerOff(void);
+    void _deepSleep(void);
     void _waitWhileBusy(const char* comment=0);
     void _setRamDataEntryMode(uint8_t em);
     void _InitDisplay(uint8_t em);

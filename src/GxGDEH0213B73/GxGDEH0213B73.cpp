@@ -406,7 +406,6 @@ void GxGDEH0213B73::_deepSleep(){
 void GxGDEH0213B73::powerDown()
 {
   _using_partial_mode = false;
-  //_PowerOff();
   _deepSleep();
 }
 

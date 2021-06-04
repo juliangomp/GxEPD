@@ -580,8 +580,6 @@ void GxGDEH0213B73::_Init_Full(uint8_t em)
 void GxGDEH0213B73::_Init_Part(uint8_t em)
 {
   _InitDisplay(em);
-  _writeCommand(0x2C); //VCOM Voltage
-  _writeData(0x26);    // NA ??
   _writeCommand(0x32);
   _writeData(LUT_DATA_part, sizeof(LUT_DATA_part));
   // the demo code uses Mode 2 with Ping Pong (P 29), doesn't work with GxEPD
@@ -608,7 +606,7 @@ void GxGDEH0213B73::_Update_Part(void)
 {
   _writeCommand(0x22);
   // _writeData(0x0C); // the demo code uses Mode 2 with Ping Pong
-  _writeData(0x04); // use Mode 1 for GxEPD
+  _writeData(0xcf);
   _writeCommand(0x20);
   _waitWhileBusy("_Update_Part");
 }
